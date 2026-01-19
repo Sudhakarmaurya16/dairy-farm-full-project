@@ -18,7 +18,7 @@ const ProductDetails = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:5001/api/products/${id}`);
+        const res = await axios.get(`https://dairy-farm-full-project-2.onrender.com/api/products/${id}`);
         setProduct(res.data);
         setLoading(false);
       } catch (error) {

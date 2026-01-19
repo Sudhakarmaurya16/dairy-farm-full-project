@@ -21,7 +21,7 @@ const AddProduct = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/products");
+      const res = await axios.get("https://dairy-farm-full-project-2.onrender.com/api/products");
       setProducts(res.data);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -35,7 +35,7 @@ const AddProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5001/api/products", formData);
+      await axios.post("https://dairy-farm-full-project-2.onrender.com/api/products", formData);
       alert("Product Added Successfully!");
       setFormData({ name: "", price: "", category: "Milk", image: "" });
 
@@ -50,7 +50,7 @@ const AddProduct = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       try {
-        await axios.delete(`http://localhost:5001/api/products/${id}`);
+        await axios.delete(`https://dairy-farm-full-project-2.onrender.com/api/products/${id}`);
         fetchProducts(); // List update karein
       } catch (error) {
         alert("Error deleting product");

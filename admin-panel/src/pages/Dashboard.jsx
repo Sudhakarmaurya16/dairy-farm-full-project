@@ -18,8 +18,8 @@ const Dashboard = () => {
     try {
       // Dono API ek sath call karein (Orders aur Products)
       const [ordersRes, productsRes] = await Promise.all([
-        axios.get("http://localhost:5001/api/orders"),
-        axios.get("http://localhost:5001/api/products"),
+        axios.get("https://dairy-farm-full-project-2.onrender.com/api/orders"),
+        axios.get("https://dairy-farm-full-project-2.onrender.com/api/products"),
       ]);
 
       const orders = ordersRes.data;

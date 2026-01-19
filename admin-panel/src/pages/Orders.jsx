@@ -12,7 +12,7 @@ const Orders = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/orders");
+      const res = await axios.get("https://dairy-farm-full-project-2.onrender.com/api/orders");
 
       // Data ko date ke hisaab se sort karein (Latest pehle)
       // Aapke DB me field ka naam 'date' hai, isliye hum 'b.date' use kar rahe hain
@@ -29,7 +29,7 @@ const Orders = () => {
   // Status update karne ka function
   const handleStatusChange = async (id, newStatus) => {
     try {
-      await axios.put(`http://localhost:5001/api/orders/${id}`, {
+      await axios.put(`https://dairy-farm-full-project-2.onrender.com/api/orders/${id}`, {
         status: newStatus,
       });
       fetchOrders(); // List ko refresh karein

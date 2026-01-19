@@ -135,7 +135,7 @@ const Home = () => {
   useEffect(() => {
     const fetchHomeProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:5001/api/products");
+        const res = await axios.get("https://dairy-farm-full-project-2.onrender.com/api/products");
         setFeaturedProducts(res.data.slice(0, 3));
         setLoading(false);
       } catch (error) {

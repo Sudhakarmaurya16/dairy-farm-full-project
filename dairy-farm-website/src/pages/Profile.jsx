@@ -30,7 +30,7 @@ const Profile = () => {
   const fetchOrders = async (phoneNum) => {
     try {
       const res = await axios.get(
-        `http://localhost:5001/api/orders?phone=${phoneNum}`,
+        `https://dairy-farm-full-project-2.onrender.com/api/orders?phone=${phoneNum}`,
       );
       setOrders(res.data);
     } catch (err) {
@@ -43,7 +43,7 @@ const Profile = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const loginRes = await axios.post("http://localhost:5001/api/login", {
+      const loginRes = await axios.post("https://dairy-farm-full-project-2.onrender.com/api/login", {
         phone,
         password,
       });
@@ -64,7 +64,7 @@ const Profile = () => {
     setLoading(true);
     try {
       const payload = { ...formData, phone, password };
-      await axios.post("http://localhost:5001/api/register", payload);
+      await axios.post("https://dairy-farm-full-project-2.onrender.com/api/register", payload);
       alert("✅ Registration Successful! Please Login.");
       setIsRegistering(false);
     } catch (error) {

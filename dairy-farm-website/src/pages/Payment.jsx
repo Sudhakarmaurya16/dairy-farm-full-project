@@ -48,7 +48,7 @@ const Payment = () => {
     try {
       // Backend Port 5001 check
       const res = await axios.post(
-        "http://localhost:5001/api/orders",
+        "https://dairy-farm-full-project-2.onrender.com/api/orders",
         orderData,
       );
 
