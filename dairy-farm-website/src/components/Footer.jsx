@@ -53,14 +53,14 @@ const Footer = () => {
         <div className="footer-contact">
           <h3>Contact Us</h3>
           <p>
-            <i className="fas fa-map-marker-alt"></i> Samrat Farm House, Dairy
-            Road, India
+            <i className="fas fa-map-marker-alt"></i> Samrat Farm House, Khalilabad (Sant Kabir Nagar),
+             India.
           </p>
           <p>
-            <i className="fas fa-phone"></i> +91 98765 43210
+            <i className="fas fa-phone"></i> +91 7905134870
           </p>
           <p>
-            <i className="fas fa-envelope"></i> info@thesamratdairy.com
+            <i className="fas fa-envelope"></i> sudhakarmaurya71208@gmail.com
           </p>
         </div>
       </div>

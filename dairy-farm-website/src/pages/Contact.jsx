@@ -56,22 +56,22 @@ const Contact = () => {
               <div className="info-icon">📍</div>
               <div className="info-text">
                 <h4>Farm Address</h4>
-                <p>Samrat Dairy Farm, Near Green Valley, Punjab, India</p>
+                <p>Samrat Dairy Farm, Near Khalilabad Sant Kabir Nagar ( Pin- 272175 ), India</p>
               </div>
             </div>
             <div className="info-card-3d">
               <div className="info-icon">📞</div>
               <div className="info-text">
                 <h4>Call Us</h4>
-                <p>+91 98765 43210</p>
-                <p>+91 91234 56789</p>
+                <p>+91 73104 25655</p>
+                <p>+91 79051 34870</p>
               </div>
             </div>
             <div className="info-card-3d">
               <div className="info-icon">✉️</div>
               <div className="info-text">
                 <h4>Email Us</h4>
-                <p>info@samratdairy.com</p>
+                <p>sudhakarmaurya71208@gamil.com</p>
               </div>
             </div>
           </div>
