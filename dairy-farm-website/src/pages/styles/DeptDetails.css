@@ -1,0 +1,207 @@
+/* 1. Wrapper & Smooth Entrance */
+.details-wrapper {
+  background: #f4f7f6;
+  min-height: 100vh;
+  animation: fadeIn 0.8s ease-out;
+  overflow-x: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. Hero Section with 3D Depth */
+.details-hero {
+  position: relative;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Parallax Effect */
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.3)
+  );
+}
+
+.hero-text-3d {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-text-3d h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.hero-text-3d span {
+  color: #27ae60; /* Samrat Green */
+  text-transform: uppercase;
+}
+
+/* 3. Main Content Container */
+.details-content-container {
+  max-width: 1200px;
+  margin: -80px auto 60px;
+  padding: 0 20px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 60px;
+  border-radius: 40px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 4. 3D Visual Section (Image) */
+.details-visual {
+  position: relative;
+  perspective: 1000px;
+}
+
+.details-img-3d {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 30px;
+  box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.15);
+  transform: rotateY(-10deg);
+  transition: transform 0.5s ease;
+}
+
+.details-visual:hover .details-img-3d {
+  transform: rotateY(0deg) scale(1.03);
+}
+
+.purity-tag {
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  padding: 12px 25px;
+  font-weight: 800;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  transform: rotate(-5deg);
+}
+
+.saffron-bg {
+  background: #ff9933;
+} /* Saffron Accents */
+
+/* 5. Text & Tiranga Heading */
+.tiranga-heading {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  border-left: 6px solid #128807; /* Indian Green Line */
+  padding-left: 20px;
+}
+
+.tiranga-heading span {
+  color: #ff9933; /* Saffron Samrat Name */
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+/* 6. Benefits Grid (Small 3D Cards) */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.benefit-item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  border-bottom: 4px solid #eee;
+  transition: 0.3s;
+}
+
+.benefit-item:hover {
+  border-bottom: 4px solid #128807;
+  transform: translateY(-5px);
+}
+
+.benefit-item h4 {
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+/* 7. Order Now 3D Button */
+.order-now-btn {
+  width: 100%;
+  padding: 20px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.2s;
+}
+
+.green-btn {
+  background: #128807;
+  box-shadow: 0 8px 0 #0d6305, 0 15px 25px rgba(18, 136, 7, 0.3);
+}
+
+.green-btn:hover {
+  background: #16a30a;
+  transform: translateY(-2px);
+}
+
+.green-btn:active {
+  transform: translateY(6px);
+  box-shadow: 0 2px 0 #0d6305;
+}
+
+/* 8. Mobile Responsive */
+@media (max-width: 900px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+  .hero-text-3d h1 {
+    font-size: 2.5rem;
+  }
+  .details-img-3d {
+    transform: none;
+    height: 300px;
+  }
+}

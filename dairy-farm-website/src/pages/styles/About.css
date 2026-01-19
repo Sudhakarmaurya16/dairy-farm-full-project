@@ -1,0 +1,1106 @@
+/* --- GLOBAL VARIABLES --- */
+:root {
+    --primary-green: #27ae60;
+    --dark-green: #1e8449;
+    --dairy-blue: #2c3e50;
+    --cream-bg: #fdfbf7;
+    --gold: #f1c40f;
+}
+
+.about-wrapper {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: white;
+}
+
+/* --- HERO SECTION --- */
+.about-hero {
+    height: 60vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=2074&auto=format&fit=crop');
+    /* Farm Landscape */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Parallax effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.about-hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.about-hero-content h1 span {
+    color: var(--primary-green);
+    background: white;
+    padding: 0 10px;
+    border-radius: 5px;
+}
+
+.about-hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- STORY SECTION --- */
+.story-section {
+    padding: 80px 10%;
+    background-color: var(--cream-bg);
+}
+
+.story-container {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.story-image {
+    flex: 1;
+    position: relative;
+}
+
+.story-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--primary-green);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(39, 174, 96, 0.4);
+}
+
+.experience-badge .years {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.story-text {
+    flex: 1.2;
+}
+
+.sub-heading {
+    color: var(--primary-green);
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.story-text h2 {
+    font-size: 2.5rem;
+    color: var(--dairy-blue);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.story-text p {
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.story-features {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.feature .icon {
+    font-size: 2rem;
+    background: #e8f8f5;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.feature h5 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: var(--dairy-blue);
+}
+
+/* --- PROCESS SECTION --- */
+.process-section {
+    padding: 80px 10%;
+    text-align: center;
+    background: white;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--dairy-blue);
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: #888;
+    margin-bottom: 50px;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.process-card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.process-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-color: var(--primary-green);
+}
+
+.step-number {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #f0f0f0;
+    z-index: 0;
+}
+
+.step-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.process-card h3 {
+    margin: 10px 0;
+    color: var(--dairy-blue);
+    position: relative;
+    z-index: 1;
+}
+
+.process-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* --- VALUES SECTION --- */
+.values-section {
+    background: url('https://images.unsplash.com/photo-1546445317-29f4545e9d53?q=80&w=2000&auto=format&fit=crop');
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 80px 10%;
+    color: white;
+    position: relative;
+}
+
+.values-overlay {
+    background: rgba(44, 62, 80, 0.85);
+    /* Dark Blue Overlay */
+    padding: 50px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.values-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.value-box {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+    border-left: 4px solid var(--gold);
+    padding-left: 15px;
+}
+
+.value-box h3 {
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+/* --- FOUNDER QUOTE --- */
+.founder-msg {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fcfcfc;
+}
+
+.founder-msg blockquote {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+}
+
+.founder-msg cite {
+    font-weight: bold;
+    color: var(--primary-green);
+    text-transform: uppercase;
+    font-style: normal;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .about-hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .story-container {
+        flex-direction: column;
+    }
+
+    .story-image,
+    .story-text {
+        width: 100%;
+    }
+
+    .experience-badge {
+        padding: 15px;
+        right: 10px;
+    }
+
+    .story-features {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .values-grid {
+        flex-direction: column;
+    }
+}
+
+/* --- GLOBAL VARIABLES --- */
+:root {
+    --primary-green: #27ae60;
+    --dark-green: #1e8449;
+    --dairy-blue: #2c3e50;
+    --cream-bg: #fdfbf7;
+    --gold: #f1c40f;
+}
+
+.about-wrapper {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: white;
+}
+
+/* --- HERO SECTION --- */
+.about-hero {
+    height: 60vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=2074&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.about-hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.about-hero-content h1 span {
+    color: var(--primary-green);
+    background: white;
+    padding: 0 10px;
+    border-radius: 5px;
+}
+
+.about-hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- STORY SECTION --- */
+.story-section {
+    padding: 80px 10%;
+    background-color: var(--cream-bg);
+}
+
+.story-container {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.story-image {
+    flex: 1;
+    position: relative;
+}
+
+.story-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--primary-green);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(39, 174, 96, 0.4);
+}
+
+.experience-badge .years {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.story-text {
+    flex: 1.2;
+}
+
+.sub-heading {
+    color: var(--primary-green);
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.story-text h2 {
+    font-size: 2.5rem;
+    color: var(--dairy-blue);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.story-text p {
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.story-features {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.feature .icon {
+    font-size: 2rem;
+    background: #e8f8f5;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.feature h5 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: var(--dairy-blue);
+}
+
+/* --- PROCESS SECTION --- */
+.process-section {
+    padding: 80px 10%;
+    text-align: center;
+    background: white;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--dairy-blue);
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: #888;
+    margin-bottom: 50px;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.process-card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.process-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-color: var(--primary-green);
+}
+
+.step-number {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #f0f0f0;
+    z-index: 0;
+}
+
+.step-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.process-card h3 {
+    margin: 10px 0;
+    color: var(--dairy-blue);
+    position: relative;
+    z-index: 1;
+}
+
+.process-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* --- VALUES SECTION --- */
+.values-section {
+    background: url('https://images.unsplash.com/photo-1546445317-29f4545e9d53?q=80&w=2000&auto=format&fit=crop');
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 80px 10%;
+    color: white;
+    position: relative;
+}
+
+.values-overlay {
+    background: rgba(44, 62, 80, 0.85);
+    padding: 50px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.values-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.value-box {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+    border-left: 4px solid var(--gold);
+    padding-left: 15px;
+}
+
+.value-box h3 {
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+/* --- UPDATED FOUNDER QUOTE SECTION --- */
+.founder-msg {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fcfcfc;
+    border-top: 1px solid #eee;
+}
+
+.founder-msg blockquote {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+}
+
+.founder-msg cite {
+    font-weight: bold;
+    color: var(--primary-green);
+    text-transform: uppercase;
+    font-style: normal;
+    display: block;
+    margin-bottom: 25px;
+}
+
+/* New Founder Avatar Styles */
+.founder-avatar-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.founder-avatar-container:hover {
+    transform: scale(1.05);
+}
+
+.founder-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-green);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
+}
+
+.click-hint {
+    font-size: 0.8rem;
+    color: var(--dairy-blue);
+    opacity: 0.7;
+}
+
+
+/* --- POPUP STYLES (Copied & Adapted from Home.css for consistency) --- */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-content {
+    background: white;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease-in-out;
+}
+
+.popup-grid {
+    display: flex;
+    flex-direction: row;
+}
+
+.popup-image {
+    flex: 1;
+    background: #f4f7f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Specific style for owner image in popup to make it fill nicely */
+.owner-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 400px;
+    /* Ensure good height */
+}
+
+.popup-details {
+    flex: 1.2;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.popup-badge {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    border-radius: 20px;
+    width: fit-content;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.popup-details h2 {
+    font-size: 2rem;
+    color: var(--dairy-blue);
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+.owner-role {
+    color: var(--primary-green);
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.popup-desc {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.owner-vision-box {
+    background: #f9f9f9;
+    padding: 15px;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+}
+
+.owner-vision-box strong {
+    display: block;
+    color: var(--dairy-blue);
+    margin-bottom: 5px;
+}
+
+.owner-vision-box p {
+    font-style: italic;
+    color: #666;
+    margin: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #aaa;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Popup */
+@media (max-width: 768px) {
+    .about-hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .story-container,
+    .values-grid,
+    .story-features {
+        flex-direction: column;
+    }
+
+    .story-image,
+    .story-text {
+        width: 100%;
+    }
+
+    /* Popup Mobile */
+    .popup-grid {
+        flex-direction: column;
+    }
+
+    .owner-img-box img {
+        min-height: 250px;
+        max-height: 300px;
+    }
+
+    .popup-details {
+        padding: 20px;
+    }
+}
+
+/* About.css */
+
+/* --- Founder Avatar 3D Look --- */
+.founder-avatar {
+    width: 110px;
+    /* Thoda sa bada kiya taaki border fit ho */
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+
+    /* NEW 3D EFFECT */
+    /* 1. Green border ki jagah thick white border + green outline */
+    border: 4px solid white;
+    outline: 3px solid var(--primary-green);
+    /* Green ring outside white border */
+
+    /* 2. Inner shadow for rounded volume (Golaai dene ke liye) */
+    box-shadow:
+        inset 0 -5px 10px rgba(0, 0, 0, 0.2),
+        /* Neeche se inner shadow */
+        0 10px 20px rgba(0, 0, 0, 0.3);
+    /* Bahar ki shadow */
+}
+
+/* Hover effect container par hai, to avatar kaise react karega */
+.founder-avatar-container:hover .founder-avatar {
+    transform: translateY(-5px) scale(1.05) rotate(3deg);
+    /* Thoda sa tilt bhi add kiya */
+    box-shadow:
+        inset 0 -5px 10px rgba(0, 0, 0, 0.3),
+        0 15px 30px rgba(0, 0, 0, 0.4);
+    /* Shadow intense ho jayegi */
+}
+
+/* About.css */
+
+/* --- Story Image 3D Look --- */
+.story-image img {
+    width: 100%;
+    border-radius: 15px;
+    /* Old Shadow replace kar rahe hain */
+    /* box-shadow: 0 15px 30px rgba(0,0,0,0.1); */
+
+    /* NEW 3D EFFECT */
+    /* 1. Safed border taaki photo paper jaisa lage */
+    border: 5px solid white;
+    /* 2. Layered shadows for depth (Gehrai ke liye) */
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.07),
+        /* Sabse kareeb ki shadow */
+        0 2px 4px rgba(0, 0, 0, 0.07),
+        0 4px 8px rgba(0, 0, 0, 0.07),
+        0 8px 16px rgba(0, 0, 0, 0.07),
+        0 16px 32px rgba(0, 0, 0, 0.07),
+        /* Sabse door ki soft shadow */
+        0 0 0 1px rgba(0, 0, 0, 0.02) inset;
+    /* Halki si inner shadow taaki kinare sharp lagen */
+
+    transition: all 0.4s cubic-bezier(.25, .8, .25, 1);
+    /* Smooth animation */
+}
+
+/* Hover karne par image aur ubhar kar aayegi */
+.story-image:hover img {
+    transform: translateY(-12px) scale(1.02);
+    /* Upar uthegi */
+    box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    /* Shadow gehri aur badi ho jayegi */
+}
+
+/* --- Story Image Container --- */
+.story-image {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* Items ko upar-neeche arrange karega */
+    align-items: center;
+    /* Sab kuch center karega */
+}
+
+/* --- New Wrapper for Image & Badge --- */
+.img-frame {
+    position: relative;
+    /* Badge iske hisaab se set hoga */
+    display: inline-block;
+    margin-bottom: 40px;
+    /* IMPORT: Badge ke liye neeche jagah chhodi */
+}
+
+.img-frame img {
+    /* Wahi 3D style jo pehle diya tha */
+    width: 100%;
+    max-width: 400px;
+    /* Image jyada badi na ho */
+    border-radius: 15px;
+    border: 5px solid white;
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.07),
+        0 2px 4px rgba(0, 0, 0, 0.07),
+        0 4px 8px rgba(0, 0, 0, 0.07),
+        0 8px 16px rgba(0, 0, 0, 0.07),
+        0 16px 32px rgba(0, 0, 0, 0.07),
+        0 0 0 1px rgba(0, 0, 0, 0.02) inset;
+    transition: all 0.4s cubic-bezier(.25, .8, .25, 1);
+}
+
+/* Badge Positioning fix */
+.experience-badge {
+    position: absolute;
+    bottom: -25px;
+    /* Image se thoda neeche latakta hua */
+    right: -25px;
+    /* Image se thoda bahar nikalta hua */
+    background: var(--primary-green);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(39, 174, 96, 0.4);
+    z-index: 10;
+    /* Image ke upar dikhe */
+    min-width: 120px;
+}
+
+/* Text Styling */
+.founder-info {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.founder-info h3 {
+    font-size: 1.8rem;
+    color: var(--dairy-blue);
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.founder-info p {
+    font-size: 0.95rem;
+    color: var(--primary-green);
+    margin: 8px 0 0 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Hover Effect */
+.img-frame:hover img {
+    transform: translateY(-10px);
+}
+
+/* --- MOBILE RESPONSIVE DESIGN (Add at Bottom) --- */
+
+@media (max-width: 768px) {
+
+    /* 1. HERO SECTION */
+    .about-hero {
+        height: 50vh;
+        /* Height thodi kam karein mobile par */
+        background-attachment: scroll;
+        /* Parallax effect mobile par lag karta hai, isliye hata dein */
+    }
+
+    .about-hero-content h1 {
+        font-size: 2.2rem;
+        /* Heading chhota karein */
+        padding: 0 15px;
+    }
+
+    .about-hero-content p {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+
+    /* 2. STORY SECTION */
+    .story-section {
+        padding: 50px 20px;
+        /* Padding kam karein */
+    }
+
+    .story-container {
+        flex-direction: column;
+        /* Image aur Text upar-neeche */
+        gap: 40px;
+    }
+
+    .story-image,
+    .story-text {
+        width: 100%;
+        text-align: center;
+        /* Text center karein mobile par */
+    }
+
+    /* Image badge fix */
+    .experience-badge {
+        right: 0;
+        /* Badge ko screen ke andar layein */
+        bottom: -20px;
+        padding: 10px 15px;
+        min-width: auto;
+    }
+
+    .experience-badge .years {
+        font-size: 1.8rem;
+    }
+
+    /* Features List (Icons) */
+    .story-features {
+        flex-direction: column;
+        align-items: flex-start;
+        /* Left align karein ya center */
+        gap: 15px;
+    }
+
+    /* Agar text center hai to features bhi center karein */
+    .story-text {
+        text-align: left;
+        /* Reading ke liye left alignment behtar hai */
+    }
+
+    /* 3. PROCESS SECTION */
+    .process-section {
+        padding: 50px 20px;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+        /* Single column layout */
+        gap: 40px;
+        /* Cards ke beech gap badhayein */
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* 4. VALUES SECTION */
+    .values-section {
+        padding: 50px 20px;
+        background-attachment: scroll;
+        /* Mobile parallax fix */
+    }
+
+    .values-overlay {
+        padding: 30px 20px;
+    }
+
+    .values-grid {
+        flex-direction: column;
+        /* Values upar-neeche */
+        gap: 25px;
+    }
+
+    .value-box {
+        text-align: center;
+        /* Center align behtar dikhega */
+        border-left: none;
+        /* Side border hatayein */
+        border-bottom: 3px solid var(--gold);
+        /* Bottom border lagayein */
+        padding-left: 0;
+        padding-bottom: 15px;
+    }
+
+    /* 5. FOUNDER & POPUP */
+    .founder-msg {
+        padding: 40px 20px;
+    }
+
+    .founder-msg blockquote {
+        font-size: 1.2rem;
+        /* Quote size adjust */
+    }
+
+    /* Popup Mobile Fixes */
+    .popup-content {
+        width: 95%;
+        max-height: 85vh;
+        /* Screen height limit */
+        overflow-y: auto;
+        /* Scroll allow karein */
+        margin: 10px;
+    }
+
+    .popup-grid {
+        flex-direction: column;
+        /* Image upar, Details neeche */
+    }
+
+    .owner-img-box img {
+        height: 250px;
+        /* Image height kam karein */
+        min-height: auto;
+    }
+
+    .popup-details {
+        padding: 20px;
+    }
+
+    .popup-details h2 {
+        font-size: 1.6rem;
+    }
+
+    /* Founder Avatar Container Fix */
+    .img-frame {
+        margin-bottom: 30px;
+        max-width: 100%;
+    }
+
+    .img-frame img {
+        max-width: 100%;
+    }
+}

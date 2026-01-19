@@ -1,0 +1,967 @@
+/* =========================================
+   1. FONT IMPORT & VARIABLES
+========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500;1,600&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --dept-primary-green: #128807;
+  --dept-dark-green: #0a5c03;
+  --dept-saffron: #ff9933;
+  --dept-text-dark: #1f2937;
+  --dept-text-light: #6b7280;
+  --dept-bg-color: #f8fafc;
+  /* Slightly cooler grey for modern feel */
+  --dept-card-bg: #ffffff;
+}
+
+/* Page Container */
+.departments-page {
+  background-color: var(--dept-bg-color);
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  padding-bottom: 80px;
+  /* More breathing room at bottom */
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* =========================================
+   2. HERO SECTION (Modern & Deep)
+========================================= */
+.dept-hero {
+  position: relative;
+  height: 85vh;
+  /* Taller hero */
+  background-color: #0e4d0e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+  margin-bottom: 80px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  /* Stronger shadow */
+  border-bottom-left-radius: 50px;
+  /* Modern curved bottom */
+  border-bottom-right-radius: 50px;
+}
+
+.hero-parallax-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.8;
+  /* Let more image show through */
+  animation: slowZoom 25s infinite alternate;
+}
+
+@keyframes slowZoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.15);
+  }
+}
+
+.dept-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom,
+      rgba(0, 20, 0, 0.4) 0%,
+      rgba(0, 40, 0, 0.85) 100%);
+  z-index: 1;
+}
+
+.dept-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 20px;
+  animation: fadeUp 1s ease-out;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: var(--dept-saffron);
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  box-shadow: 0 8px 20px rgba(255, 153, 51, 0.5);
+  /* Glowing shadow */
+  margin-bottom: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.hero-main-title {
+  font-size: 5rem;
+  /* Massive title */
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 25px;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  letter-spacing: -2px;
+}
+
+.hero-main-title span {
+  display: block;
+  color: #a3ffac;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 5px;
+  text-shadow: 0 0 20px rgba(163, 255, 172, 0.6);
+  /* Neon glow */
+}
+
+.hero-description {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+  max-width: 750px;
+  font-weight: 500;
+  color: var(--dept-primary-green);
+}
+
+.hero-badges {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  padding: 12px 25px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dept-primary-green);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.badge:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Wave */
+.milk-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 3;
+  opacity: 0.9;
+}
+
+/* =========================================
+   3. DEPARTMENTS GRID (Modern 3D Cards)
+========================================= */
+.dept-grid-section {
+  padding: 0 20px;
+  max-width: 1300px;
+  margin: 0 auto 80px;
+}
+
+.dept-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title-3d {
+  font-size: 3rem;
+  color: var(--dept-text-dark);
+  margin-bottom: 15px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.title-3d span {
+  color: var(--dept-primary-green);
+  position: relative;
+  display: inline-block;
+}
+
+.title-3d span::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: rgba(18, 136, 7, 0.2);
+  /* Highlighter effect */
+  z-index: -1;
+  transform: skewX(-15deg);
+}
+
+.subtitle {
+  color: var(--dept-text-light);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.dept-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  /* Wider cards */
+  gap: 50px;
+}
+
+/* --- THE CARD --- */
+.dept-card {
+  background: var(--dept-card-bg);
+  border-radius: 30px;
+  /* More rounded */
+  padding: 20px;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Springy transition */
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 20px 40px -10px rgba(0, 0, 0, 0.1),
+    /* Soft large shadow */
+    0 0 0 1px rgba(0, 0, 0, 0.02);
+  /* Crisp border */
+}
+
+.dept-card:hover {
+  transform: translateY(-20px) scale(1.02);
+  box-shadow:
+    0 40px 70px -15px rgba(18, 136, 7, 0.25),
+    /* Green glow lift */
+    0 0 0 2px var(--dept-primary-green);
+  /* Green border highlight */
+  z-index: 2;
+  cursor: pointer;
+}
+
+.dept-img-box {
+  border-radius: 25px;
+  overflow: hidden;
+  height: 250px;
+  position: relative;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+.dept-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.dept-card:hover .dept-img-box img {
+  transform: scale(1.15);
+}
+
+/* Modern View Badge */
+.view-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(60px);
+  /* Hidden deeply */
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--dept-primary-green);
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.dept-card:hover .view-badge {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dept-info {
+  padding: 25px 15px 10px;
+  text-align: center;
+}
+
+.dept-info h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--dept-text-dark);
+  letter-spacing: -0.5px;
+}
+
+.dept-info p {
+  font-size: 1rem;
+  margin-bottom: 25px;
+  color: var(--dept-text-light);
+  line-height: 1.6;
+}
+
+/* 3D Button */
+.learn-more-btn {
+  background: var(--dept-primary-green);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 6px 0 var(--dept-dark-green), 0 15px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(0);
+}
+
+.learn-more-btn:active {
+  transform: translateY(6px);
+  box-shadow: 0 0 0 var(--dept-dark-green), inset 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dept-card:hover .learn-more-btn {
+  background: #16a30a;
+  /* Slightly brighter on card hover */
+}
+
+/* =========================================
+   4. FARM JOURNEY (Glassmorphism Cards)
+========================================= */
+.farm-details-section {
+  padding: 100px 20px;
+  background-color: white;
+  /* Clean break */
+  background-image:
+    radial-gradient(#e0e7ff 1.5px, transparent 1.5px),
+    radial-gradient(#e0e7ff 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  margin-top: 0;
+  position: relative;
+}
+
+.details-glass-container {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border-radius: 40px;
+  padding: 80px 50px;
+  max-width: 1300px;
+  margin: 0 auto;
+  box-shadow:
+    0 50px 100px -20px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.details-title {
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: var(--dept-text-dark);
+  font-weight: 800;
+}
+
+.details-title span {
+  color: var(--dept-primary-green);
+}
+
+.details-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.detail-item-3d {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 30px;
+  position: relative;
+  transition: 0.4s;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.04);
+}
+
+.detail-item-3d:hover {
+  transform: translateY(-15px) rotate(1deg);
+  box-shadow: 0 30px 60px rgba(18, 136, 7, 0.2);
+  border-color: var(--dept-primary-green);
+  z-index: 10;
+}
+
+.detail-number {
+  background: var(--dept-primary-green);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  /* Squircle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.4rem;
+  margin: 0 auto 25px;
+  box-shadow: 0 10px 20px rgba(18, 136, 7, 0.4);
+  transform: rotate(-5deg);
+}
+
+.detail-item-3d:hover .detail-number {
+  transform: rotate(5deg) scale(1.1);
+  transition: 0.4s;
+}
+
+.detail-item-3d h4 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: var(--dept-text-dark);
+  font-weight: 700;
+}
+
+.detail-item-3d p {
+  font-size: 1rem;
+  color: var(--dept-text-light);
+  line-height: 1.6;
+}
+
+/* Stats Banner */
+.farm-stats-banner {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 80px;
+  flex-wrap: wrap;
+  border-top: 2px dashed #eee;
+  padding-top: 60px;
+}
+
+.stat-box strong {
+  display: block;
+  font-size: 2.5rem;
+  color: var(--dept-primary-green);
+  font-weight: 900;
+}
+
+.stat-box span {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #9ca3af;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   5. REVIEWS SECTION (Modern Cards)
+========================================= */
+.reviews-section {
+  padding: 100px 20px;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.reviews-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.review-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 30px;
+  width: 350px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid #fff;
+  transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.review-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
+}
+
+.stars {
+  color: #ffd700;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.review-card p {
+  font-style: italic;
+  color: #4b5563;
+  margin-bottom: 25px;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.review-card h4 {
+  color: var(--dept-primary-green);
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   6. FAQ SECTION (Clean Accordion)
+========================================= */
+.faq-section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: white;
+  margin-bottom: 25px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+  transition: 0.3s;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.faq-item:hover {
+  transform: translateX(10px);
+  border-color: var(--dept-primary-green);
+}
+
+.faq-item.active {
+  box-shadow: 0 15px 30px rgba(18, 136, 7, 0.1);
+  border-color: var(--dept-primary-green);
+}
+
+.faq-question {
+  padding: 25px 30px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  color: var(--dept-text-dark);
+}
+
+.faq-answer {
+  padding: 0 30px 30px;
+  background: #f0fdf4;
+  color: #4b5563;
+  line-height: 1.8;
+}
+
+/* =========================================
+   7. FINAL CTA (Impactful)
+========================================= */
+.final-cta {
+  background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.final-cta h2 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  font-weight: 900;
+}
+
+.cta-btn-main {
+  background: var(--dept-saffron);
+  color: white;
+  border: none;
+  padding: 18px 50px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 0 #cc7a29, 0 25px 40px rgba(0, 0, 0, 0.4);
+  transition: 0.2s;
+  margin-top: 30px;
+}
+
+.cta-btn-main:active {
+  transform: translateY(8px);
+  box-shadow: 0 0 0 #cc7a29;
+}
+
+/* =========================================
+   8. POPUP (Modern Modal)
+========================================= */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.popup-content {
+  background: white;
+  width: 100%;
+  max-width: 900px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: 30px;
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.close-popup-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-popup-btn:hover {
+  background: #ef4444;
+  color: white;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.popup-header-img {
+  height: 350px;
+  position: relative;
+}
+
+.popup-header-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.popup-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  padding: 60px 40px 30px;
+  color: white;
+}
+
+.popup-title-overlay h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 0;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.popup-body {
+  padding: 40px;
+}
+
+.popup-body h3 {
+  font-size: 1.8rem;
+  color: var(--dept-primary-green);
+  margin-bottom: 30px;
+  font-weight: 800;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.dept-details-list li {
+  padding-left: 40px;
+  margin-bottom: 20px;
+  font-size: 1.15rem;
+  color: #374151;
+  position: relative;
+  list-style: none;
+  line-height: 1.8;
+}
+
+.dept-details-list li::before {
+  content: "✅";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 1.3rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100px) scale(0.9);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-main-title {
+    font-size: 2.8rem;
+  }
+
+  .dept-hero {
+    height: auto;
+    padding: 120px 20px 80px;
+  }
+
+  .details-title {
+    font-size: 2rem;
+  }
+
+  .popup-title-overlay h2 {
+    font-size: 2rem;
+  }
+
+  .dept-grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- MOBILE RESPONSIVE FIXES (Add at Bottom) --- */
+
+@media screen and (max-width: 768px) {
+
+  /* 1. HERO SECTION */
+  .dept-hero {
+    height: auto;
+    min-height: 80vh;
+    /* Kam height taaki scroll kam karna pade */
+    padding: 100px 15px 50px;
+    border-radius: 0 0 30px 30px;
+    /* Curve thoda kam */
+  }
+
+  .hero-main-title {
+    font-size: 2.8rem;
+    /* Font chhota */
+    line-height: 1.1;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .hero-badges {
+    gap: 10px;
+  }
+
+  .badge {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
+  /* 2. DEPARTMENTS GRID */
+  .dept-grid-section {
+    padding: 0 15px;
+  }
+
+  .title-3d {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .dept-grid-container {
+    grid-template-columns: 1fr;
+    /* Single column force karein */
+    gap: 30px;
+  }
+
+  .dept-card {
+    padding: 15px;
+  }
+
+  .dept-img-box {
+    height: 200px;
+    /* Image height kam */
+  }
+
+  /* View Badge Button visible karein mobile par (Hover kaam nahi karta) */
+  .view-badge {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    bottom: 15px;
+    font-size: 0.75rem;
+    padding: 8px 15px;
+  }
+
+  /* 3. FARM JOURNEY (DETAILS) */
+  .farm-details-section {
+    padding: 60px 15px;
+  }
+
+  .details-glass-container {
+    padding: 40px 20px;
+    border-radius: 20px;
+  }
+
+  .details-title {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+
+  .details-features-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .farm-stats-banner {
+    gap: 30px;
+    flex-direction: column;
+    /* Stats upar-neeche */
+  }
+
+  /* 4. REVIEWS SECTION */
+  .reviews-section {
+    padding: 60px 15px;
+  }
+
+  .review-card {
+    width: 100%;
+    /* Full width card */
+    padding: 30px 20px;
+  }
+
+  /* 5. FAQ SECTION */
+  .faq-section {
+    padding: 60px 15px;
+  }
+
+  .faq-question {
+    font-size: 1rem;
+    padding: 20px;
+  }
+
+  /* 6. POPUP / MODAL */
+  .popup-overlay {
+    padding: 10px;
+    align-items: flex-end;
+    /* Mobile par sheet jaisa niche se aaye */
+  }
+
+  .popup-content {
+    max-height: 90vh;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .popup-header-img {
+    height: 200px;
+  }
+
+  .popup-title-overlay {
+    padding: 30px 20px 20px;
+  }
+
+  .popup-title-overlay h2 {
+    font-size: 1.8rem;
+  }
+
+  .popup-body {
+    padding: 25px 20px 80px;
+    /* Bottom padding taki content kate na */
+  }
+
+  .dept-details-list li {
+    font-size: 1rem;
+    padding-left: 30px;
+  }
+
+  .close-popup-btn {
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  /* 7. FINAL CTA */
+  .final-cta {
+    padding: 60px 20px;
+    border-radius: 30px 30px 0 0;
+  }
+
+  .final-cta h2 {
+    font-size: 2rem;
+  }
+
+  .cta-btn-main {
+    width: 100%;
+    /* Button full width */
+    padding: 15px;
+    font-size: 1.1rem;
+  }
+}

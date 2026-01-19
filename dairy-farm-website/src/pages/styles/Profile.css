@@ -1,0 +1,669 @@
+/* --- 1. Global Layout & Background --- */
+.profile-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.profile-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+/* Mobile Responsive: Stack items */
+@media (max-width: 900px) {
+  .profile-container {
+    flex-direction: column;
+  }
+}
+
+/* --- 2. Login Screen (Center 3D Box) --- */
+.profile-wrapper.login-mode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.login-card-3d {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+
+  /* Floating 3D Effect */
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.15),
+    0 10px 15px rgba(0, 0, 0, 0.05);
+  transform: perspective(1000px) rotateX(2deg);
+  transition: transform 0.3s;
+}
+
+.login-card-3d:hover {
+  transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+}
+
+.login-input {
+  width: 100%;
+  padding: 15px;
+  margin: 20px 0;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  background: #fafafa;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+  /* Inset Depth */
+  outline: none;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 15px;
+  background: #128807;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #0a5c03;
+  /* 3D Button Thickness */
+  transition: 0.1s;
+}
+
+.login-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #0a5c03;
+}
+
+/* --- 3. User Sidebar Card --- */
+.user-card-3d {
+  background: white;
+  flex: 1;
+  min-width: 300px;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+}
+
+.user-avatar {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 15px;
+  box-shadow: 0 10px 20px rgba(255, 94, 98, 0.3);
+}
+
+.loyalty-badge {
+  background: #fff8e1;
+  color: #f39c12;
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+  border: 1px solid #ffe082;
+}
+
+.contact-info {
+  text-align: left;
+  margin: 20px 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.edit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #f1f3f5;
+  color: #333;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.edit-btn:hover {
+  background: #e9ecef;
+}
+
+/* --- 4. Order History Section --- */
+.order-history-section {
+  flex: 2;
+  width: 100%;
+}
+
+.tiranga-heading {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+.tiranga-heading span {
+  color: #128807;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* --- 5. Order Item Card (3D) --- */
+.order-card-3d {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  border-left: 6px solid #128807;
+  /* Green Accent */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.order-card-3d:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.order-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-id {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.order-date {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.order-total {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #2c3e50;
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.status-badge.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.out-for-delivery {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-badge.delivered {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-badge.cancelled {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* --- 6. Action Buttons (View & Track) --- */
+.profile-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.view-btn-3d,
+.track-btn-3d {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.1s;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.view-btn-3d {
+  background: #3498db;
+  box-shadow: 0 4px 0 #217dbb;
+}
+
+.track-btn-3d {
+  background: #f39c12;
+  box-shadow: 0 4px 0 #d35400;
+}
+
+.view-btn-3d:active,
+.track-btn-3d:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+/* --- 7. Modals (Popups) --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.order-modal-3d,
+.tracking-modal-3d {
+  background: white;
+  width: 90%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.close-modal:hover {
+  color: #f00;
+}
+
+/* Modal Items */
+.modal-items-list {
+  max-height: 300px;
+  overflow-y: auto;
+  margin: 20px 0;
+}
+
+.modal-item-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-item-row img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 15px;
+  border-top: 2px dashed #ccc;
+  padding-top: 15px;
+}
+
+.total-amt {
+  color: #128807;
+}
+
+/* --- 8. Tracking Animation & Stepper --- */
+.delivery-animation {
+  font-size: 4rem;
+  text-align: center;
+  margin: 20px 0;
+  animation: drive 2s infinite linear;
+}
+
+@keyframes drive {
+  0% {
+    transform: translateX(-20px) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateX(20px) rotate(5deg);
+  }
+
+  100% {
+    transform: translateX(-20px) rotate(-5deg);
+  }
+}
+
+.stepper-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 30px 0;
+}
+
+/* Connecting Line */
+.stepper-container::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #eee;
+  z-index: 0;
+}
+
+.step-item {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  width: 25%;
+}
+
+.step-dot {
+  width: 25px;
+  height: 25px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  border: 4px solid white;
+  box-shadow: 0 0 0 2px #ccc;
+  transition: 0.3s;
+}
+
+.step-label {
+  font-size: 0.8rem;
+  color: #aaa;
+  font-weight: bold;
+}
+
+/* Completed Step */
+.step-item.completed .step-dot {
+  background: #128807;
+  box-shadow: 0 0 0 2px #128807;
+}
+
+.step-item.completed .step-label {
+  color: #128807;
+}
+
+.no-orders {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.no-orders button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #128807;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Niche add karein */
+.toggle-text {
+  margin-top: 15px;
+  color: #128807;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+.toggle-text:hover {
+  color: #0e6b05;
+}
+
+/* --- MOBILE RESPONSIVE 3D FIXES (Add at Bottom) --- */
+
+@media screen and (max-width: 768px) {
+
+  /* 1. GLOBAL WRAPPER */
+  .profile-wrapper {
+    padding: 15px 10px;
+    /* Padding kam karein */
+    background: #f0f4f8;
+    /* Gradient hata kar solid color (cleaner look) */
+  }
+
+  .profile-container {
+    flex-direction: column;
+    /* Sidebar upar, content neeche */
+    gap: 25px;
+  }
+
+  /* 2. LOGIN CARD (Full Width & Touch Friendly) */
+  .profile-wrapper.login-mode {
+    align-items: flex-start;
+    /* Thoda upar shift karein */
+    padding-top: 40px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .login-card-3d {
+    width: 100%;
+    max-width: 100%;
+    padding: 30px 20px;
+    /* Mobile par hover tilt hata dein, simple shadow rakhein */
+    transform: none !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .login-input {
+    font-size: 1rem;
+    padding: 14px;
+    /* Finger touch ke liye bada area */
+  }
+
+  .login-btn {
+    padding: 16px;
+    /* Bada button */
+    font-size: 1.2rem;
+  }
+
+  /* 3. USER PROFILE CARD (Top Section) */
+  .user-card-3d {
+    width: 100%;
+    position: relative;
+    /* Sticky hatayein */
+    top: 0;
+    margin-bottom: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Card ko thoda utha hua dikhayein */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .user-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 2.2rem;
+  }
+
+  .edit-btn {
+    padding: 15px;
+    /* Logout button bada karein */
+    background: #ffebee;
+    /* Light red background */
+    color: #c62828;
+  }
+
+  /* 4. ORDERS LIST (App Style Cards) */
+  .order-history-section {
+    width: 100%;
+  }
+
+  .tiranga-heading {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .order-card-3d {
+    flex-direction: column;
+    /* Content stack karein */
+    align-items: flex-start;
+    padding: 20px;
+    gap: 15px;
+    border-left-width: 8px;
+    /* Border thoda mota karein */
+    position: relative;
+  }
+
+  /* Order Meta (Top Row: ID & Date) */
+  .order-meta {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+  }
+
+  .order-id {
+    font-size: 1rem;
+    color: #128807;
+    /* ID ko green highlight */
+  }
+
+  /* Order Details (Bottom Row: Amount & Status) */
+  .order-details {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .order-total {
+    font-size: 1.4rem;
+    /* Price bada dikhayein */
+  }
+
+  .status-badge {
+    font-size: 0.85rem;
+    padding: 6px 15px;
+  }
+
+  /* 5. MODALS (Full Screen Bottom Sheet feel) */
+  .modal-overlay {
+    align-items: flex-end;
+    /* Sheet neeche se aayegi */
+  }
+
+  .order-modal-3d,
+  .tracking-modal-3d {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 25px 25px 0 0;
+    /* Sirf upar curve */
+    max-height: 85vh;
+    animation: slideUpMobile 0.3s ease-out;
+    padding: 25px;
+  }
+
+  @keyframes slideUpMobile {
+    from {
+      transform: translateY(100%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .close-modal {
+    top: 15px;
+    right: 15px;
+    background: #f1f1f1;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+
+  /* 6. TRACKING STEPPER FIX */
+  .stepper-container {
+    margin: 30px 0 10px 0;
+  }
+
+  .step-label {
+    font-size: 0.65rem;
+    /* Text chhota taaki overlap na ho */
+    margin-top: 5px;
+  }
+
+  .step-dot {
+    width: 20px;
+    height: 20px;
+    border-width: 3px;
+  }
+
+  /* Connecting line adjust */
+  .stepper-container::before {
+    top: 10px;
+  }
+}

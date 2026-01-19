@@ -1,0 +1,406 @@
+/* ==========================================================================
+   1. PREMIUM FONTS & THEME
+   ========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Outfit:wght@300;400;600;800&family=Dancing+Script:wght@700&display=swap");
+
+:root {
+  --deep-green: #043b2a;
+  --gold-accent: linear-gradient(135deg, #d4af37 0%, #f2d06b 50%, #b9964d 100%);
+  --gold-solid: #c9a34e;
+  --cream-white: #fdfbf6;
+  --pure-white: #ffffff;
+  --glass: rgba(255, 255, 255, 0.05);
+  --shadow-3d: 0 40px 100px rgba(0, 0, 0, 0.2);
+}
+
+.contact-page {
+  font-family: "Outfit", sans-serif;
+  background: var(--cream-white);
+  color: var(--deep-green);
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. TOP MODEL HERO SECTION (3D DEPTH)
+   ========================================================================== */
+.contact-hero {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 2000px;
+}
+
+.hero-image-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5) contrast(1.2);
+  transform: scale(1.1);
+  animation: bgZoom 20s infinite alternate linear;
+}
+
+@keyframes bgZoom {
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+      transparent 20%,
+      var(--deep-green) 100%);
+  opacity: 0.8;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 60px 40px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  transform: rotateX(10deg);
+  box-shadow: var(--shadow-3d);
+}
+
+.hero-title {
+  font-family: "Cinzel", serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 900;
+  letter-spacing: 10px;
+  background: var(--gold-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.hero-title span {
+  font-family: "Dancing Script", cursive;
+  -webkit-text-fill-color: #fff;
+  letter-spacing: 0;
+  font-size: 0.8em;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #fff;
+  max-width: 600px;
+  margin: 20px auto 0;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   3. CONTACT MAIN WRAPPER (3D LAYOUT)
+   ========================================================================== */
+.contact-main-wrapper {
+  margin-top: -150px;
+  padding: 0 8% 100px;
+  position: relative;
+  z-index: 20;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* --- Info Cards 3D --- */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.info-card-3d {
+  background: var(--pure-white);
+  padding: 35px;
+  border-radius: 25px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid #f0eee8;
+  cursor: pointer;
+}
+
+.info-card-3d:hover {
+  transform: translateY(-15px) rotateY(-10deg);
+  box-shadow: 0 40px 80px rgba(4, 59, 42, 0.15);
+  border-right: 6px solid var(--gold-solid);
+}
+
+.info-icon {
+  font-size: 2.5rem;
+  background: #f9f5eb;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.info-text h4 {
+  font-family: "Cinzel", serif;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: var(--deep-green);
+}
+
+/* --- 3D Form Styling --- */
+.contact-form-3d {
+  background: var(--pure-white);
+  padding: 60px;
+  border-radius: 40px;
+  box-shadow: var(--shadow-3d);
+  border: 1px solid #eee;
+}
+
+.contact-form-3d h3 {
+  font-family: "Cinzel", serif;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+  background: var(--gold-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.input-group {
+  margin-bottom: 25px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  width: 100%;
+  padding: 18px 25px;
+  border: 2px solid #f0f0f0;
+  background: #fafafa;
+  border-radius: 15px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  outline: none;
+  border-color: var(--gold-solid);
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(201, 163, 78, 0.1);
+}
+
+.cta-btn-main {
+  width: 100%;
+  background: var(--gold-accent);
+  color: var(--deep-green);
+  padding: 20px;
+  border: none;
+  border-radius: 15px;
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  cursor: pointer;
+  box-shadow: 0 15px 35px rgba(201, 163, 78, 0.3);
+  transition: all 0.4s;
+  text-transform: uppercase;
+}
+
+.cta-btn-main:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(201, 163, 78, 0.5);
+  letter-spacing: 5px;
+  color: white;
+}
+
+/* ==========================================================================
+   4. MAP SECTION (GLASS EFFECT)
+   ========================================================================== */
+.map-section {
+  padding: 80px 8%;
+  text-align: center;
+}
+
+.details-title {
+  font-family: "Cinzel", serif;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.details-title span {
+  color: var(--gold-solid);
+}
+
+.map-placeholder {
+  height: 500px;
+  background: #eee;
+  border-radius: 35px;
+  border: 15px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  box-shadow: var(--shadow-3d);
+  overflow: hidden;
+  position: relative;
+}
+
+.map-placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(4, 59, 42, 0.1), transparent);
+}
+
+/* ==========================================================================
+   5. RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-main-wrapper {
+    margin-top: -50px;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+  }
+}
+
+/* --- MOBILE RESPONSIVE 3D FIXES (Add at Bottom) --- */
+
+@media screen and (max-width: 768px) {
+
+  /* 1. HERO SECTION */
+  .contact-hero {
+    height: 70vh;
+    /* Height thodi kam */
+    perspective: 1000px;
+  }
+
+  .hero-content {
+    padding: 40px 20px;
+    margin: 0 15px;
+    transform: none;
+    /* Rotate hatayein taaki text seedha dikhe */
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    /* Dark overlay for readability */
+    backdrop-filter: blur(5px);
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    /* Font chhota */
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  /* 2. MAIN LAYOUT */
+  .contact-main-wrapper {
+    margin-top: -80px;
+    /* Thoda kam overlap */
+    padding: 0 15px 50px;
+    /* Side padding */
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+    /* Single column layout */
+    gap: 30px;
+  }
+
+  /* 3. INFO CARDS (Vertical Stack) */
+  .info-card-3d {
+    flex-direction: column;
+    /* Icon upar, text neeche */
+    text-align: center;
+    padding: 25px;
+    transform: none !important;
+    /* Reset hover transform */
+    /* Permanent subtle shadow */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    border-bottom: 4px solid var(--gold-solid);
+    /* Accent border */
+  }
+
+  .info-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    margin: 0 auto;
+  }
+
+  /* 4. CONTACT FORM */
+  .contact-form-3d {
+    padding: 30px 20px;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-form-3d h3 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  .input-group input,
+  .input-group select,
+  .input-group textarea {
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+
+  .cta-btn-main {
+    padding: 16px;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    box-shadow: 0 8px 20px rgba(201, 163, 78, 0.4);
+  }
+
+  /* 5. MAP SECTION */
+  .map-section {
+    padding: 50px 15px;
+  }
+
+  .details-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  .map-placeholder {
+    height: 300px;
+    border-width: 8px;
+    /* Border patla karein */
+    border-radius: 25px;
+  }
+}

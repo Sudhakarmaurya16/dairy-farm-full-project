@@ -1,0 +1,510 @@
+/* Navbar.css */
+:root {
+  --primary-saffron: #ff9933;
+  --primary-white: #ffffff;
+  --primary-green: #138808;
+  --btn-bg: #4a90e2;
+  /* Blue button */
+  --btn-shadow: #2c5f9e;
+  /* Darker blue for 3D depth */
+  --nav-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* 1. Navbar Container with Glass effect & Shadow */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #eee;
+}
+
+/* 2. Logo & Brand Text */
+.logo-flex {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 12px;
+}
+
+.nav-main-logo {
+  height: 50px;
+  width: auto;
+  filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.2));
+  /* 3D Shadow on Logo */
+  transition: transform 0.3s ease;
+}
+
+.nav-main-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.brand-text-tiranga {
+  display: flex;
+  flex-direction: column;
+  font-weight: 900;
+  font-size: 1.1rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  font-family: 'Arial Black', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Text 3D Effect for Tiranga */
+.saffron {
+  color: var(--primary-saffron);
+  text-shadow: 1px 1px 0px #cc7000;
+}
+
+.white {
+  color: #555;
+  /* Slightly dark on white bg to be visible */
+  text-shadow: 1px 1px 0px #ccc;
+}
+
+.green {
+  color: var(--primary-green);
+  text-shadow: 1px 1px 0px #0e5c05;
+}
+
+/* 3. Navigation Links List */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* 4. The 3D BUTTON CSS (Main Logic) */
+.three-d-btn {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background-color: var(--btn-bg);
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.1s ease;
+
+  /* The 3D Magic: Bottom border acts as depth */
+  box-shadow: 0px 5px 0px var(--btn-shadow),
+    0px 10px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(0);
+}
+
+/* Hover Effect */
+.three-d-btn:hover {
+  background-color: #5aa1f0;
+  transform: translateY(-2px);
+  /* Slight lift */
+  box-shadow: 0px 7px 0px var(--btn-shadow),
+    0px 15px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Active (Click) Effect - Button Presses Down */
+.three-d-btn:active {
+  transform: translateY(5px);
+  /* Moves down to cover the shadow */
+  box-shadow: 0px 0px 0px var(--btn-shadow),
+    inset 0px 2px 5px rgba(0, 0, 0, 0.2);
+  /* Inset shadow for pressed look */
+}
+
+/* 5. Cart Specific Styling */
+.cart-btn {
+  background-color: #ffaa00;
+  /* Different color for Cart */
+  --btn-shadow: #cc8800;
+  /* Override shadow color variable */
+  padding-right: 25px;
+  /* Extra space for badge */
+}
+
+.cart-btn:hover {
+  background-color: #ffbb33;
+}
+
+/* The Floating Badge */
+.nav-cart-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ff3333;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+  animation: bounce 2s infinite;
+}
+
+/* 6. Install Button (Special Green 3D) */
+.install-btn-3d {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0px 5px 0px #1e7e34, 0px 10px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.1s;
+}
+
+.install-btn-3d:active {
+  transform: translateY(5px);
+  box-shadow: 0px 0px 0px #1e7e34;
+}
+
+/* Animation for Badge */
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-5px);
+  }
+
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
+/* --- LOGO & BRAND SECTION FIX --- */
+
+/* 1. Flex container to align Logo and Text side-by-side */
+.logo-flex {
+  display: flex;
+  align-items: center;
+  /* Vertically center align */
+  gap: 15px;
+  /* Gap between Logo and Text */
+  text-decoration: none;
+  padding: 5px 0;
+}
+
+/* 2. Logo Styling - Circular & Shadow */
+.nav-main-logo {
+  height: 65px;
+  /* Logo size increased slightly */
+  width: 65px;
+  object-fit: contain;
+  /* background: #fff;
+  border-radius: 50%; */
+  /* Make it round */
+  padding: 4px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  /* Soft shadow */
+  border: 2px solid #f0f0f0;
+  transition: transform 0.3s ease;
+}
+
+.nav-main-logo:hover {
+  transform: rotate(10deg) scale(1.05);
+}
+
+/* 3. Text Container - Stacked Vertically */
+.brand-text-tiranga {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  /* Align text to the left */
+
+  /* Typography */
+  font-family: 'Arial Black', 'Verdana', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 0.85;
+  /* IMPORTANT: Brings lines closer together */
+}
+
+/* 4. The 3D Text Colors */
+
+/* Top Line: Saffron */
+.saffron {
+  font-size: 1.4rem;
+  color: #FF9933;
+  text-shadow: 2px 2px 0px #cc7a00;
+  /* Dark orange shadow */
+}
+
+/* Middle Line: Dark Grey (instead of white for visibility) */
+.grey-metal {
+  font-size: 1.4rem;
+  color: #555555;
+  /* Dark Grey like in your image */
+  text-shadow: 2px 2px 0px #333333;
+  z-index: 1;
+  /* Layering fix */
+}
+
+/* Bottom Line: Green */
+.green {
+  font-size: 1.6rem;
+  /* Slightly bigger base for balance */
+  color: #138808;
+  text-shadow: 2px 2px 0px #0b5703;
+}
+
+/* --- MOBILE RESPONSIVE HAMBURGER MENU --- */
+
+/* 1. Hamburger Icon (Desktop par hidden rahega) */
+.mobile-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+  padding: 5px 10px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+  /* 3D effect match karne ke liye */
+  transition: all 0.2s;
+}
+
+.mobile-toggle:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Media Query for Mobile Devices */
+@media screen and (max-width: 768px) {
+
+  /* Navbar Container adjustments */
+  .navbar-container {
+    padding: 10px 20px;
+    justify-content: space-between;
+    position: relative;
+    /* Dropdown positioning ke liye */
+  }
+
+  /* Logo ko thoda chhota karein */
+  .nav-main-logo {
+    height: 45px;
+    width: 45px;
+  }
+
+  .brand-text-tiranga {
+    transform: scale(0.9);
+    /* Text thoda chhota */
+    transform-origin: left;
+  }
+
+  /* Hamburger Icon ko dikhayein */
+  .mobile-toggle {
+    display: block;
+  }
+
+  /* --- MENU LINKS (DROPDOWN LOGIC) --- */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    /* Header ke theek neeche */
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    /* Glass effect background */
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    gap: 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #eee;
+
+    /* Animation setup */
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    z-index: 999;
+  }
+
+  /* Jab Javascript se 'active' class add hogi tab menu dikhega */
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Buttons ko mobile pe full width aur center karein */
+  .three-d-btn {
+    width: 80%;
+    /* Screen ka 80% width */
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    /* Center alignment */
+    font-size: 1.1rem;
+    padding: 12px;
+  }
+
+  /* Cart Badge ki position fix karein mobile ke liye */
+  .cart-btn {
+    position: relative;
+  }
+
+  .nav-cart-badge {
+    right: 10%;
+    /* Badge thoda andar layein */
+    top: -5px;
+  }
+
+  /* Install Button mobile menu ke andar */
+  .install-btn-3d {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+
+/* --- FIXED MOBILE RESPONSIVE DESIGN --- */
+
+@media screen and (max-width: 768px) {
+
+  /* 1. Navbar Container: Row Mode (Logo Left, Button Right) */
+  .navbar-container {
+    display: flex;
+    flex-direction: row !important;
+    /* Force Row Direction */
+    justify-content: space-between;
+    /* Dur-dur karein */
+    align-items: center;
+    padding: 10px 15px;
+    height: auto;
+    min-height: 60px;
+    position: relative;
+  }
+
+  /* 2. Logo Section Adjustment */
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    max-width: 70%;
+    /* Logo ko jagah dein par poora nahi */
+  }
+
+  .nav-main-logo {
+    height: 40px;
+    /* Mobile par logo size */
+    width: 40px;
+  }
+
+  /* Text size adjustment for mobile */
+  .brand-text-tiranga {
+    transform: scale(0.85);
+    transform-origin: left;
+    margin-left: 5px;
+  }
+
+  .saffron {
+    font-size: 1rem;
+  }
+
+  /* 3. Hamburger Button Styling */
+  .mobile-toggle {
+    display: block;
+    font-size: 1.5rem;
+    padding: 8px 12px;
+    margin: 0;
+    /* Extra margin hatayein */
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  /* 4. Dropdown Menu (Jab open ho) */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    /* Navbar ke bilkul neeche */
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    gap: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #eee;
+    z-index: 1000;
+
+    /* Animation: Default Hidden */
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  /* JS se 'active' class milne par dikhega */
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* 5. Mobile Buttons Styling */
+  .three-d-btn {
+    width: 85%;
+    /* Mobile par button chaude honge */
+    display: block;
+    margin: 0 auto;
+    /* Center karein */
+    text-align: center;
+    padding: 12px;
+  }
+
+  /* Cart Badge Adjustment */
+  .nav-cart-badge {
+    right: 15%;
+    /* Badge position set karein */
+    top: -8px;
+  }
+
+  /* Install Button */
+  .install-btn-3d {
+    width: 85%;
+    display: block;
+    margin: 10px auto;
+  }
+}

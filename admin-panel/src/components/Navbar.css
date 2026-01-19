@@ -1,0 +1,83 @@
+/* Navbar.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    /* Position relative taaki menu absolute ho sake */
+}
+
+.nav-logo {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #f39c12;
+    /* Hover effect */
+}
+
+/* Mobile Menu Icon (Hamburger) - Default Desktop pe hidden rahega */
+.mobile-menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    /* Icon ko visible karein */
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    /* Links ko default hide karein aur vertical list banayein */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        /* Navbar height ke neeche */
+        left: 0;
+        background-color: #2c3e50;
+        padding: 20px 0;
+        text-align: center;
+        border-top: 1px solid #ffffff33;
+        z-index: 100;
+    }
+
+    /* Jab menu open ho (JavaScript se ye class add hogi) */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-link {
+        padding: 10px 0;
+        display: block;
+        width: 100%;
+    }
+}

@@ -1,0 +1,200 @@
+/* ================= FOOTER ROOT ================= */
+.footer-container {
+  background: linear-gradient(145deg, #141414, #1f1f1f);
+  color: #ffffff;
+  padding: 70px 0 25px 0;
+  font-family: "Poppins", sans-serif;
+  margin-top: 60px;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+/* ================= FOOTER GRID ================= */
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+  transform-style: preserve-3d;
+}
+
+/* ================= BRAND ================= */
+.footer-brand {
+  transform: translateZ(40px);
+}
+
+.footer-logo {
+  height: 70px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 10px 20px rgba(255, 255, 255, 0.15));
+  transition: 0.5s ease;
+}
+
+.footer-logo:hover {
+  transform: translateZ(30px) scale(1.05);
+}
+
+/* ================= TITLES ================= */
+.footer-title {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.footer-title span {
+  color: #27ae60;
+}
+
+.footer-brand p {
+  color: #bdc3c7;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* ================= SOCIAL ================= */
+.social-icons {
+  display: flex;
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.social-icons a {
+  color: white;
+  background: linear-gradient(145deg, #2b2b2b, #1a1a1a);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transform: translateZ(30px);
+  transition: 0.4s ease;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.social-icons a:hover {
+  background: linear-gradient(135deg, #ff9933, #ffcc33);
+  transform: translateZ(60px) scale(1.15) rotate(8deg);
+  box-shadow: 0 20px 40px rgba(255, 153, 51, 0.6);
+}
+
+/* ================= LINKS ================= */
+.footer-links,
+.footer-contact {
+  transform: translateZ(30px);
+}
+
+.footer-links h3,
+.footer-contact h3 {
+  color: #ff9933;
+  margin-bottom: 25px;
+  font-size: 1.25rem;
+  border-bottom: 2px solid #333;
+  display: inline-block;
+  padding-bottom: 6px;
+  text-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 14px;
+}
+
+.footer-links a {
+  color: #bdc3c7;
+  text-decoration: none;
+  transition: 0.35s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  transform: translateX(10px) translateZ(20px);
+  text-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* ================= CONTACT ================= */
+.footer-contact p {
+  margin-bottom: 16px;
+  color: #bdc3c7;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateZ(20px);
+}
+
+.footer-contact i {
+  color: #27ae60;
+  text-shadow: 0 5px 15px rgba(39, 174, 96, 0.6);
+}
+
+/* ================= BOTTOM ================= */
+.footer-bottom {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 25px;
+  transform: translateZ(10px);
+}
+
+/* Tiranga 3D Line */
+.tiranga-line {
+  display: flex;
+  height: 5px;
+  width: 100%;
+  margin-bottom: 22px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.line-saffron {
+  background: linear-gradient(135deg, #ff9933, #ffb347);
+  flex: 1;
+}
+.line-white {
+  background: linear-gradient(135deg, #ffffff, #eaeaea);
+  flex: 1;
+}
+.line-green {
+  background: linear-gradient(135deg, #128807, #2ecc71);
+  flex: 1;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #95a5a6;
+}
+
+.footer-bottom span {
+  color: #ff9933;
+  font-weight: bold;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-links h3,
+  .footer-contact h3 {
+    margin-top: 25px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .footer-brand,
+  .footer-links,
+  .footer-contact {
+    transform: translateZ(0);
+  }
+}

@@ -1,0 +1,455 @@
+/* =========================================
+   1. GLOBAL VARIABLES & LAYOUT
+========================================= */
+:root {
+  --primary-green: #008f33;
+  /* Matches the button/price in image */
+  --light-green-bg: #e9f7ef;
+  /* The pale green background behind images */
+  --text-dark: #1f2937;
+  --text-grey: #9ca3af;
+  --bg-page: #f9fafb;
+}
+
+.products-container {
+  background: var(--bg-page);
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  /* Ensure you have a nice font loaded */
+  padding-bottom: 50px;
+}
+
+/* =========================================
+   2. HERO SECTION (Kept stylistically consistent)
+========================================= */
+.prod-hero-3d {
+  position: relative;
+  height: 70vh;
+  background: linear-gradient(135deg, #0e4d0e 0%, #1a960b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+
+.prod-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  z-index: 2;
+}
+
+.prod-text-col {
+  flex: 1;
+  color: white;
+}
+
+.prod-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.highlight-text {
+  color: #a3ffac;
+  font-style: italic;
+}
+
+.prod-desc {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 500px;
+}
+
+.prod-image-col {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.main-product-img {
+  width: 80%;
+  max-width: 400px;
+  animation: floatHero 6s ease-in-out infinite;
+}
+
+.milk-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 1;
+}
+
+@keyframes floatHero {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* =========================================
+   3. FILTERS & GRID
+========================================= */
+.products-grid-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 10px 25px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  color: #6b7280;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover,
+.active-tab {
+  background: var(--primary-green);
+  color: white;
+  border-color: var(--primary-green);
+  box-shadow: 0 4px 12px rgba(0, 143, 51, 0.3);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* =========================================
+   4. THE 3D CARD (Replicating the Image)
+========================================= */
+.product-card-3d {
+  background: white;
+  border-radius: 24px;
+  /* Highly rounded corners like reference */
+  padding: 12px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+
+  /* Soft Shadow Depth */
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 10px 15px -3px rgba(0, 0, 0, 0.05);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hover Effect: Lift Up */
+.product-card-3d:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* --- Image Container (The Green Box) --- */
+.product-image-box {
+  background-color: var(--light-green-bg);
+  /* Pale green bg */
+  border-radius: 20px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensures image fills the box nicely */
+  transition: transform 0.5s ease;
+}
+
+.product-card-3d:hover .product-image-box img {
+  transform: scale(1.08);
+  /* Subtle zoom on hover */
+}
+
+/* --- Badges --- */
+.stock-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: white;
+  color: var(--primary-green);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.qty-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff9933;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+/* --- Product Details --- */
+.product-info {
+  padding: 15px 5px 5px 5px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.category-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-grey);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  background: #f3f4f6;
+  padding: 4px 8px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.product-info h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 5px 0 15px 0;
+  line-height: 1.3;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  /* Pushes price/button to bottom */
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-green);
+}
+
+/* --- 3D Green Button --- */
+.add-btn {
+  background: var(--primary-green);
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  /* 3D Button Depth */
+  box-shadow: 0 4px 0 #006423;
+  /* Darker green bottom border */
+  transform: translateY(0);
+}
+
+.add-btn:hover {
+  background: #007a2b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #006423;
+}
+
+.add-btn:active {
+  transform: translateY(4px);
+  /* Press down effect */
+  box-shadow: 0 0 0 #006423;
+}
+
+/* Added State */
+.add-btn.added {
+  background: #333;
+  box-shadow: 0 4px 0 #000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .prod-content-wrapper {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding-top: 40px;
+  }
+
+  .prod-title {
+    font-size: 2.5rem;
+  }
+
+  .main-product-img {
+    width: 60%;
+    margin-top: 30px;
+  }
+}
+
+/* --- MOBILE RESPONSIVE FIXES (Add at Bottom) --- */
+
+@media screen and (max-width: 768px) {
+
+  /* 1. HERO SECTION */
+  .prod-hero-3d {
+    height: auto;
+    /* Fixed height hatayein */
+    min-height: 80vh;
+    /* Kam se kam itna bada ho */
+    padding: 100px 0 60px 0;
+    /* Navbar aur bottom space */
+    background: linear-gradient(180deg, #0e4d0e 0%, #1a960b 100%);
+    /* Mobile gradient fix */
+  }
+
+  .prod-content-wrapper {
+    flex-direction: column;
+    /* Text upar, Image neeche */
+    text-align: center;
+    gap: 40px;
+    width: 90%;
+  }
+
+  .prod-title {
+    font-size: 2.2rem;
+    /* Title chhota karein */
+    margin-bottom: 15px;
+  }
+
+  .prod-desc {
+    font-size: 1rem;
+    margin: 0 auto;
+    /* Center text */
+  }
+
+  .prod-image-col {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .main-product-img {
+    width: 70%;
+    /* Image ka size control karein */
+    max-width: 280px;
+    animation: floatHero 4s ease-in-out infinite;
+    /* Animation thoda tez */
+  }
+
+  /* 2. FILTERS (TABS) */
+  .category-tabs {
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .tab-btn {
+    padding: 8px 18px;
+    /* Button padding kam karein */
+    font-size: 0.9rem;
+    flex-grow: 1;
+    /* Buttons ko failne dein */
+    text-align: center;
+  }
+
+  /* 3. PRODUCTS GRID (Single Column) */
+  .products-grid-section {
+    padding: 0 15px;
+  }
+
+  .products-grid {
+    display: grid;
+    /* Force 1 column on mobile for better visibility */
+    grid-template-columns: 1fr !important;
+    gap: 25px;
+  }
+
+  /* 4. PRODUCT CARD ADJUSTMENTS */
+  .product-card-3d {
+    /* Mobile par hover effect hatakar permanent shadow de sakte hain */
+    transform: none !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .product-image-box {
+    height: 200px;
+    /* Image height thodi kam */
+  }
+
+  .product-image-box img {
+    /* Mobile par image ko thoda bada dikhayein */
+    transform: scale(1.05);
+  }
+
+  .product-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .price {
+    font-size: 1.3rem;
+  }
+
+  /* Button full width for easier tap */
+  .add-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+
+/* Extra Small Phones (Galaxy Fold etc.) */
+@media screen and (max-width: 380px) {
+  .prod-title {
+    font-size: 1.8rem;
+  }
+
+  .tab-btn {
+    width: 100%;
+    /* Tabs ek ke neeche ek */
+  }
+}

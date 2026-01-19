@@ -1,0 +1,101 @@
+.dashboard-container {
+    padding: 20px;
+}
+
+.dash-title {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    border-left: 5px solid #27ae60;
+    padding-left: 15px;
+}
+
+/* --- GRID LAYOUT --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* --- 3D CARDS --- */
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease;
+
+    /* 3D Shadow */
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.05),
+        0 6px 6px rgba(0, 0, 0, 0.05);
+    border-bottom: 4px solid transparent;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Colors */
+.stat-card.earnings {
+    border-bottom-color: #27ae60;
+}
+
+.stat-card.orders {
+    border-bottom-color: #2980b9;
+}
+
+.stat-card.pending {
+    border-bottom-color: #f39c12;
+}
+
+.stat-card.products {
+    border-bottom-color: #8e44ad;
+}
+
+/* Icons */
+.stat-card .icon {
+    font-size: 2.5rem;
+    background: #f4f6f8;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card .info h3 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-card .info p {
+    margin: 5px 0 0 0;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #2c3e50;
+}
+
+/* Welcome Banner */
+.welcome-banner {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(44, 62, 80, 0.3);
+}
+
+.welcome-banner h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
