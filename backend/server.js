@@ -49,6 +49,11 @@ const Order = mongoose.models.Order || mongoose.model("Order", orderSchema);
 // 2. ROUTES
 // ==========================================
 
+// ✅ ROOT ROUTE (Home Page Error Fix)
+app.get("/", (req, res) => {
+  res.send("API is Running Successfully! 🚀");
+});
+
 // --- AUTH ROUTES ---
 
 // 1. Register User
@@ -82,6 +87,16 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
+// ✅ GET ALL USERS (Ye missing tha - Ab add kar diya hai)
+app.get("/api/users", async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching users" });
+  }
+});
+
 // --- PRODUCT ROUTES ---
 
 app.post("/api/products", async (req, res) => {
@@ -96,11 +111,15 @@ app.post("/api/products", async (req, res) => {
 
 // GET ALL PRODUCTS
 app.get("/api/products", async (req, res) => {
-  const products = await Product.find({});
-  res.json(products);
+  try {
+    const products = await Product.find({});
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching products" });
+  }
 });
 
-// ✅ GET SINGLE PRODUCT (Ye Missing tha - Ab fix ho gaya)
+// GET SINGLE PRODUCT
 app.get("/api/products/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -172,7 +191,8 @@ app.put("/api/orders/:id", async (req, res) => {
 // Start Server
 const MONGO_URI =
   process.env.MONGO_URI || "mongodb://127.0.0.1:27017/dairy-farm";
-const PORT = 5001;
+const PORT = process.env.PORT || 5001; // Render ke liye PORT variable zaroori hai
+
 mongoose
   .connect(MONGO_URI)
   .then(() => {
