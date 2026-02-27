@@ -1,116 +1,15 @@
-// import React from "react";
-// import { useNavigate } from "react-router-dom";
-// import "./styles/Home.css";
-
-// const testimonials = [
-//   {
-//     id: 1,
-//     name: "Rahul Verma",
-//     text: "The purity and freshness are unmatched. Truly premium dairy!",
-//     role: "Fitness Coach",
-//   },
-//   {
-//     id: 2,
-//     name: "Priya Singh",
-//     text: "My family trusts this dairy completely. Hygienic and healthy.",
-//     role: "Homemaker",
-//   },
-//   {
-//     id: 3,
-//     name: "Anish Khan",
-//     text: "Authentic desi ghee with real aroma. Loved it!",
-//     role: "Chef",
-//   },
-// ];
-
-// const Home = () => {
-//   const navigate = useNavigate();
-
-//   return (
-//     <div className="home-wrapper">
-//       {/* HERO SECTION */}
-//       <section className="hero-3d">
-//         <div className="hero-glass">
-//           <h1>
-//             Pure <span>Dairy</span> From <br /> Healthy Cows
-//           </h1>
-//           <p>
-//             Organic • Hygienic • Sustainable <br />
-//             Straight from our farm to your home
-//           </p>
-//           <button onClick={() => navigate("/products")} className="btn-3d">
-//             Explore Products
-//           </button>
-//         </div>
-//       </section>
-
-//       {/* STATS */}
-//       <section className="stats-section">
-//         <div className="stat-box">🐄 500+ Healthy Cows</div>
-//         <div className="stat-box">🧪 100% Lab Tested</div>
-//         <div className="stat-box">🌱 Eco Friendly</div>
-//         <div className="stat-box">🥛 Zero Adulteration</div>
-//       </section>
-
-//       {/* FARM & CLEANLINESS */}
-//       <section className="facility-section">
-//         <div className="facility-img">
-//           <img
-//             src="https://i.pinimg.com/1200x/27/2e/92/272e922510366dd2837fc1403f2a3b96.jpg"
-//             alt="Dairy Farm"
-//           />
-//         </div>
-//         <div className="facility-text">
-//           <h2>Ultra-Hygienic Dairy Facility</h2>
-//           <p>
-//             Our cows are raised in stress-free open farms. Milk is collected
-//             using automated milking systems and packed without human touch.
-//           </p>
-//           <ul>
-//             <li>✔ Automatic Milking Machines</li>
-//             <li>✔ RO Water Cleaning</li>
-//             <li>✔ Temperature Controlled Storage</li>
-//             <li>✔ Environment Friendly Waste Management</li>
-//           </ul>
-//         </div>
-//       </section>
-
-//       {/* TESTIMONIALS */}
-//       <section className="testimonial-section">
-//         <h2>Trusted by Families</h2>
-//         <div className="testimonial-grid">
-//           {testimonials.map((t) => (
-//             <div className="testimonial-card" key={t.id}>
-//               <p>“{t.text}”</p>
-//               <h4>{t.name}</h4>
-//               <span>{t.role}</span>
-//             </div>
-//           ))}
-//         </div>
-//       </section>
-
-//       {/* NEWSLETTER */}
-//       <section className="newsletter-3d">
-//         <div className="newsletter-glass">
-//           <h2>Join Our Dairy Family</h2>
-//           <p>Get farm updates, offers & healthy living tips</p>
-//           <div className="newsletter-form">
-//             <input type="email" placeholder="Enter email" />
-//             <button>Subscribe</button>
-//           </div>
-//         </div>
-//       </section>
-//     </div>
-//   );
-// };
-
-// export default Home;
 
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { CartContext } from "../context/CartContext";
 import "./styles/Home.css";
+
+// ✅ VIDEO IMPORTS (STEP 2 ADDED)
+import CowVideo from "../assets/videos/cow.mp4";
+import ProcessingVideo from "../assets/videos/processing.mp4";
+import DeliveryVideo from "../assets/videos/delivery.mp4";
+import OrganicVideo from "../assets/videos/organic.mp4";
 
 // Import Data from separate file
 import {
@@ -127,15 +26,15 @@ const Home = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // --- POPUP STATE ---
-  const [selectedProduct, setSelectedProduct] = useState(null); // Stores product data for popup
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
 
-  // Fetch Products
   useEffect(() => {
     const fetchHomeProducts = async () => {
       try {
-        const res = await axios.get("https://dairy-farm-full-project-2.onrender.com/api/products");
+        const res = await axios.get(
+          "https://dairy-farm-full-project-2.onrender.com/api/products",
+        );
         setFeaturedProducts(res.data.slice(0, 3));
         setLoading(false);
       } catch (error) {
@@ -146,7 +45,6 @@ const Home = () => {
     fetchHomeProducts();
   }, []);
 
-  // --- POPUP HANDLERS ---
   const handleViewProduct = (product) => {
     setSelectedProduct(product);
     setShowPopup(true);
@@ -157,7 +55,6 @@ const Home = () => {
     setSelectedProduct(null);
   };
 
-  // Helper to get professional content based on name
   const getProductContent = (name) => {
     return productPopupDetails[name] || productPopupDetails["default"];
   };
@@ -180,7 +77,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 2. STATS SECTION (Mapped from Data) */}
+      {/* 2. STATS SECTION */}
       <section className="stats-section">
         {statsData.map((stat, index) => (
           <div className="stat-box" key={index}>
@@ -189,7 +86,7 @@ const Home = () => {
         ))}
       </section>
 
-      {/* 3. BEST SELLERS SECTION */}
+      {/* 3. BEST SELLERS */}
       <section className="featured-section">
         <h2 className="section-heading">
           Our <span>Best Sellers</span>
@@ -211,7 +108,7 @@ const Home = () => {
                 <div className="home-actions">
                   <button
                     className="view-btn-small"
-                    onClick={() => handleViewProduct(product)} // Open Popup
+                    onClick={() => handleViewProduct(product)}
                   >
                     View
                   </button>
@@ -228,7 +125,7 @@ const Home = () => {
         )}
       </section>
 
-      {/* 4. FACILITY SECTION (Mapped from Data) */}
+      {/* 4. FACILITY SECTION */}
       <section className="facility-section">
         <div className="facility-img">
           <img src={facilityData.image} alt="Farm" />
@@ -244,7 +141,44 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 5. TESTIMONIALS (Mapped from Data) */}
+      {/* ✅ 5. NEW VIDEO SECTION (STEP 3 ADDED) */}
+      <section className="video-section">
+        <h2 className="section-heading">
+          Inside <span>Our Dairy Farm</span>
+        </h2>
+
+        <div className="video-grid">
+          <div className="video-card">
+            <video src={CowVideo} autoPlay loop muted playsInline />
+            <div className="video-overlay">
+              <h3>Healthy Cow Care</h3>
+            </div>
+          </div>
+
+          <div className="video-card">
+            <video src={ProcessingVideo} autoPlay loop muted playsInline />
+            <div className="video-overlay">
+              <h3>Milk Processing</h3>
+            </div>
+          </div>
+
+          <div className="video-card">
+            <video src={DeliveryVideo} autoPlay loop muted playsInline />
+            <div className="video-overlay">
+              <h3>Fresh Delivery</h3>
+            </div>
+          </div>
+
+          <div className="video-card">
+            <video src={OrganicVideo} autoPlay loop muted playsInline />
+            <div className="video-overlay">
+              <h3>Organic Farming</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. TESTIMONIALS */}
       <section className="testimonial-section">
         <h2 className="section-heading">
           Trusted by <span>Families</span>
@@ -260,7 +194,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 6. NEWSLETTER */}
+      {/* 7. NEWSLETTER */}
       <section className="newsletter-3d">
         <div className="newsletter-glass">
           <h2>Join Our Dairy Family</h2>
@@ -272,7 +206,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* --- PRODUCT DETAIL POPUP (MODAL) --- */}
+      {/* PRODUCT POPUP */}
       {showPopup && selectedProduct && (
         <div className="popup-overlay" onClick={closePopup}>
           <div className="popup-content" onClick={(e) => e.stopPropagation()}>
@@ -281,12 +215,10 @@ const Home = () => {
             </button>
 
             <div className="popup-grid">
-              {/* Left: Image */}
               <div className="popup-image">
                 <img src={selectedProduct.image} alt={selectedProduct.name} />
               </div>
 
-              {/* Right: Content */}
               <div className="popup-details">
                 <span className="popup-badge">Best Seller</span>
                 <h2>{getProductContent(selectedProduct.name).heading}</h2>

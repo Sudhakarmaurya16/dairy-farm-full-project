@@ -481,7 +481,7 @@ const Departments = () => {
             <span>Taste & Trust</span>
           </h1>
 
-          <p className="hero-description">
+          <p className="hero-description" style={{color:"#000000"}}>
             Experience the freshness of 100% organic milk delivered straight
             from our green pastures to your doorstep. Nature's goodness,
             bottled.
