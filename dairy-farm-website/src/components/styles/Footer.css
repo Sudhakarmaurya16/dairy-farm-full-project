@@ -4,8 +4,8 @@
   color: #ffffff;
   padding: 70px 0 25px 0;
   font-family: "Poppins", sans-serif;
-  margin-top: 60px;
-  perspective: 1200px;
+  margin-top: 20px;
+  /* perspective: 1200px; */
   transform-style: preserve-3d;
 }
 
@@ -139,8 +139,6 @@
 /* ================= BOTTOM ================= */
 .footer-bottom {
   text-align: center;
-  margin-top: 60px;
-  padding-top: 25px;
   transform: translateZ(10px);
 }
 
