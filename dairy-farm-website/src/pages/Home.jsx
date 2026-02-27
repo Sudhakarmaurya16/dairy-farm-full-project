@@ -3,6 +3,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { CartContext } from "../context/CartContext";
+import { AuthContext } from "../context/AuthContext"; // ✅ AuthContext import kiya
 import "./styles/Home.css";
 
 // ✅ VIDEO IMPORTS (STEP 2 ADDED)
@@ -22,6 +23,7 @@ import {
 const Home = () => {
   const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
+  const { user } = useContext(AuthContext); // ✅ User state nikaali
 
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -44,6 +46,17 @@ const Home = () => {
     };
     fetchHomeProducts();
   }, []);
+
+  // ================= ADD TO CART SECURITY =================
+  const handleAddToCart = (product) => {
+    if (!user) {
+      alert("🔒 Please Login first to buy products!");
+      navigate("/profile");
+      return false; // Return false so we know it failed
+    }
+    addToCart(product);
+    return true; // Return true on success
+  };
 
   const handleViewProduct = (product) => {
     setSelectedProduct(product);
@@ -114,7 +127,7 @@ const Home = () => {
                   </button>
                   <button
                     className="add-btn-small"
-                    onClick={() => addToCart(product)}
+                    onClick={() => handleAddToCart(product)} // ✅ Updated
                   >
                     Add +
                   </button>
@@ -141,7 +154,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ✅ 5. NEW VIDEO SECTION (STEP 3 ADDED) */}
+      {/* 5. NEW VIDEO SECTION (STEP 3 ADDED) */}
       <section className="video-section">
         <h2 className="section-heading">
           Inside <span>Our Dairy Farm</span>
@@ -239,8 +252,11 @@ const Home = () => {
                   <button
                     className="popup-add-btn"
                     onClick={() => {
-                      addToCart(selectedProduct);
-                      closePopup();
+                      // ✅ Updated Logic: Sirf tabhi popup close hoga jab item successfully add ho
+                      const success = handleAddToCart(selectedProduct);
+                      if (success) {
+                        closePopup();
+                      }
                     }}
                   >
                     Add to Cart 🛒
