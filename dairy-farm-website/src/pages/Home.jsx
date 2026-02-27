@@ -144,7 +144,7 @@ const Home = () => {
           <img src={facilityData.image} alt="Farm" />
         </div>
         <div className="facility-text">
-          <h2>{facilityData.title}</h2>
+          <h2 style={{color:"#128807"}}>{facilityData.title}</h2>
           <p>{facilityData.description}</p>
           <ul>
             {facilityData.features.map((feature, index) => (
